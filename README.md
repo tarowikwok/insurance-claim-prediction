@@ -1,49 +1,87 @@
 # 🛡️ Insurance Claim Prediction & Risk Analysis
 
-A Machine Learning project designed to predict insurance claim probability and analyze customer risk levels.
+> A machine learning application for predicting insurance claim probability and analyzing customer risk levels through an interactive Streamlit dashboard.
 
-The system combines predictive modeling, risk scoring, data visualization, and an interactive Streamlit dashboard to support data-driven insurance risk assessment.
-
----
-
-## 📌 Project Overview
-
-Insurance companies need to assess customer risk before making decisions related to policy approval, monitoring, and claim management.
-
-This project develops a machine learning system that predicts whether a customer is likely to make an insurance claim and estimates the probability of a claim occurring.
-
-The prediction is then transformed into a risk classification:
-
-- LOW
-- MEDIUM
-- HIGH
-
-The project also provides an interactive dashboard for exploring predictions, customer risk profiles, model performance, and dataset statistics.
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)
+![Scikit Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E?logo=scikitlearn)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
-## 🎯 Objectives
+## 📌 Overview
 
-The main objectives of this project are:
+**Insurance Claim Prediction & Risk Analysis** is an end-to-end machine learning project designed to predict the likelihood of an insurance claim and transform the prediction into an actionable customer risk classification.
 
-1. Analyze insurance customer data.
-2. Predict the probability of insurance claims.
-3. Compare machine learning models.
-4. Evaluate model performance.
-5. Classify customers into different risk levels.
-6. Identify important risk factors.
-7. Provide an interactive dashboard for prediction and analysis.
+The system analyzes customer, policy, vehicle, claim history, and driving behavior data to estimate the probability of a future insurance claim.
+
+The prediction is then converted into three risk categories:
+
+| Claim Probability | Risk Level |
+|---:|:---|
+| < 30% | 🟢 LOW |
+| 30% – 69% | 🟡 MEDIUM |
+| ≥ 70% | 🔴 HIGH |
+
+The project includes an interactive **Streamlit dashboard** that allows users to perform individual predictions, explore customer risk profiles, evaluate machine learning models, and inspect the underlying dataset.
 
 ---
 
-## 🧠 Machine Learning Approach
+# 🎯 Business Problem
 
-The project uses supervised machine learning for binary classification.
+Insurance companies need to evaluate customer risk efficiently while handling large amounts of policy and customer data.
 
-### Target Variable
+Traditional risk assessment can be time-consuming and may rely heavily on manual evaluation.
+
+This project demonstrates how machine learning can support insurance risk assessment by:
+
+- Predicting the probability of an insurance claim
+- Identifying potentially high-risk customers
+- Segmenting customers based on predicted claim probability
+- Analyzing factors associated with claim risk
+- Providing a centralized interactive dashboard for decision support
+
+> **Note:** This application is a machine learning decision-support prototype and is not intended to replace professional insurance underwriting or regulatory decisions.
+
+---
+
+# 💡 Solution
+
+The system follows an end-to-end machine learning workflow:
 
 ```text
-Claim
-
-0 = No Claim
-1 = Claim
+Insurance Dataset
+       │
+       ▼
+Data Preparation
+       │
+       ▼
+Feature Engineering
+       │
+       ▼
+Train / Test Split
+       │
+       ▼
+Model Training
+       │
+       ├───────────────┐
+       ▼               ▼
+Logistic Regression  Random Forest
+       │               │
+       └───────┬───────┘
+               ▼
+       Model Evaluation
+               │
+               ▼
+         Best Model
+               │
+       ┌───────┴────────┐
+       ▼                ▼
+Claim Prediction    Risk Analysis
+       │                │
+       ▼                ▼
+Probability       LOW / MEDIUM / HIGH
+       │
+       ▼
+Streamlit Dashboard
